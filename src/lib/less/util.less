@@ -1,0 +1,112 @@
+@import './common.less';
+
+.xtr6(@name, @px) {
+	@{name}: @px * 2 / 75 * 1rem;
+}
+.xtr6(@name, @px1, @px2) {
+	@{name}: @px1 * 2 / 75 * 1rem  @px2 * 2 / 75 * 1rem;
+}
+.xtr6(@name, @px1, @px2, @px3) {
+	@{name}: @px1 * 2 / 75 * 1rem  @px2 * 2 / 75 * 1rem @px3 * 2 / 75 * 1rem;
+}
+.xtr6(@name, @px1, @px2, @px3, @px4) {
+	@{name}: @px1 * 2 / 75 * 1rem  @px2 * 2 / 75 * 1rem @px3 * 2 / 75 * 1rem @px4 * 2 / 75 * 1rem;
+}
+
+// iphonex适配
+@supports (padding-bottom: constant(safe-area-inset-bottom)) or (padding-bottom: env(safe-area-inset-bottom)) {
+    .fix-iphonex {
+        padding-bottom: constant(safe-area-inset-bottom);
+        padding-bottom: env(safe-area-inset-bottom);
+    }
+}
+
+.white {
+    background-color: #fff;
+}
+
+.arrow-class {
+    .xtr6(width, 8);
+    .xtr6(height, 13);
+    position: absolute;
+    .xtr6(right, 15);
+    top: 50%;
+    transform: translateY(-50%);
+    background-image: url('~assets/img/arrow.png');
+    background-size: 100% 100%;
+}
+
+.mint-tab-item-label {
+    color: #999999;
+    .xtr6(font-size, 10);
+}
+
+.tab-top-div {
+    width: 100%;
+    .xtr6(height, 55);
+}
+
+.button-large {
+    color: @fff;
+    text-align: center;
+    outline: none;
+    border: none;
+    width: 100%;
+    background-color: @proColor;
+    border-radius: 5px;
+    .xtr6(height, 47);
+    .xtr6(line-height, 47);
+    .xtr6(font-size, 18);
+    z-index: 22;
+}
+.button-default {
+    color: @000;
+    text-align: center;
+    border: none;
+    width: 100%;
+    background-color: @e5e5;
+    border-radius: 5px;
+    .xtr6(height, 47);
+    .xtr6(line-height, 47);
+    .xtr6(font-size, 18);
+    z-index: 22;
+}
+.button-disabled {
+    &:extend(.button-large);
+    opacity: .4;
+}
+.button-fix {
+    &:extend(.button-large);
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    border-radius: 0;
+    .xtr6(width, 140);
+}
+
+.button-container {
+    .xtr6(padding, 29, 20, 0, 20);
+}
+// 没有更多了的提示
+.transparent-line-through-div {
+    width: 100%;
+    .xtr6(height, 70);
+    p {
+        color: @888;
+        .xtr6(line-height, 70);
+        .xtr6(font-size, 12);
+    }
+}
+// 清除浮动
+.clearfix::after {
+    content: '';
+    display: block;
+    clear: both;
+    visibility: hidden;
+    width: 0;
+    height: 0;
+}
+// attention color
+.attention-color {
+    color: @attentionColor !important;
+}
